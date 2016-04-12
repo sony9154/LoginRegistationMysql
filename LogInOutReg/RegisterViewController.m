@@ -94,6 +94,7 @@
     }];
     
     [task resume];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 

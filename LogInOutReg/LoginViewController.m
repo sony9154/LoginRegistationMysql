@@ -67,6 +67,8 @@
         NSLog(@"\nResult: %@", result.description);
         
         NSString *resultValue = result[@"status"];
+        NSString *resultNickname = [result[@"nickname"] objectForKey:@"user_nickname"];
+        //NSString *nicknameCut = [resultNickname substringFromIndex:5];
         
         if([resultValue  isEqual: @"Success"])
         {
@@ -77,7 +79,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
             MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
                 //mainMenuViewController.successName = self.userEmailTextField.text;
-                mainMenuViewController.successName;
+                mainMenuViewController.successNickname = resultNickname;
             [self showDetailViewController:mainMenuViewController sender:nil];
             });
             

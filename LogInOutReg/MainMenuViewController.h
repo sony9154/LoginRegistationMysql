@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MainMenuViewController : UIViewController
-@property (strong, nonatomic) NSString * successName;
+@property (strong, nonatomic) NSString * successNickname;
 @end

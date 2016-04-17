@@ -19,8 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"%@",self.successName);
-    self.userNameLabel.text = self.successName;
+    self.userNameLabel.text = self.successNickname;
     
 }
 

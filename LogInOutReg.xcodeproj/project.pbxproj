@@ -18,7 +18,6 @@
 		5D93461D1CB3BC570068DD22 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93461C1CB3BC560068DD22 /* RegisterViewController.m */; };
 		5D9710A71CC2B33800D71CC6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9710A41CC2B33800D71CC6 /* FBSDKCoreKit.framework */; };
 		5D9710A81CC2B33800D71CC6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9710A51CC2B33800D71CC6 /* FBSDKLoginKit.framework */; };
-		5D9710A91CC2B33800D71CC6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9710A61CC2B33800D71CC6 /* FBSDKShareKit.framework */; };
 		5D9710AC1CC2C26100D71CC6 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		5D93461C1CB3BC560068DD22 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5D9710A41CC2B33800D71CC6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5D9710A51CC2B33800D71CC6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		5D9710A61CC2B33800D71CC6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		5D9710AA1CC2C26100D71CC6 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +51,6 @@
 			files = (
 				5D9710A81CC2B33800D71CC6 /* FBSDKLoginKit.framework in Frameworks */,
 				5D9710A71CC2B33800D71CC6 /* FBSDKCoreKit.framework in Frameworks */,
-				5D9710A91CC2B33800D71CC6 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +64,6 @@
 				5D80D00B1CAD5F0900F0B991 /* Products */,
 				5D9710A41CC2B33800D71CC6 /* FBSDKCoreKit.framework */,
 				5D9710A51CC2B33800D71CC6 /* FBSDKLoginKit.framework */,
-				5D9710A61CC2B33800D71CC6 /* FBSDKShareKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,11 +82,11 @@
 				5D80D0111CAD5F0900F0B991 /* AppDelegate.m */,
 				5D80D0271CAD647000F0B991 /* LoginNavigationController.h */,
 				5D80D0281CAD647000F0B991 /* LoginNavigationController.m */,
-				5D80D0131CAD5F0900F0B991 /* EntranceViewController.h */,
 				5D93461B1CB3BC560068DD22 /* RegisterViewController.h */,
 				5D93461C1CB3BC560068DD22 /* RegisterViewController.m */,
 				5D9710AA1CC2C26100D71CC6 /* MainMenuViewController.h */,
 				5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */,
+				5D80D0131CAD5F0900F0B991 /* EntranceViewController.h */,
 				5D80D0141CAD5F0900F0B991 /* EntranceViewController.m */,
 				5D80D0161CAD5F0900F0B991 /* Main.storyboard */,
 				5D80D0241CAD636700F0B991 /* LoginViewController.h */,
@@ -235,6 +231,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -281,6 +278,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -293,6 +291,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

@@ -7,7 +7,6 @@
 //
 
 #import "MainMenuViewController.h"
-#import "LoginViewController.m"
 
 @interface MainMenuViewController ()
 
@@ -20,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@",self.successName);
+    self.userNameLabel.text = self.successName;
+    
 }
 
 - (void)didReceiveMemoryWarning {

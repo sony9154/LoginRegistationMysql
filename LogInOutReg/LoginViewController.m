@@ -70,13 +70,14 @@
         
         if([resultValue  isEqual: @"Success"])
         {
-            NSString *userEmailStored = [[NSUserDefaults standardUserDefaults]stringForKey:userEmail];
+            //NSString *userEmailStored = [[NSUserDefaults standardUserDefaults]stringForKey:userEmail];
             [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"isUserLoggedIn"];
             [[NSUserDefaults standardUserDefaults]synchronize];
             
             dispatch_async(dispatch_get_main_queue(), ^{
             MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-            mainMenuViewController.successName = userEmailStored;
+                //mainMenuViewController.successName = self.userEmailTextField.text;
+                mainMenuViewController.successName;
             [self showDetailViewController:mainMenuViewController sender:nil];
             });
             

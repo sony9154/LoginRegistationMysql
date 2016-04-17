@@ -88,13 +88,14 @@
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [myAlert addAction:okAction];
             [self presentViewController:myAlert animated:true completion:nil];
+            
         });
         
         
     }];
     
     [task resume];
-    [self dismissViewControllerAnimated:true completion:nil];
+    //[self dismissViewControllerAnimated:true completion:nil];
 }
 
 

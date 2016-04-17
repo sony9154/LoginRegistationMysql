@@ -7,6 +7,10 @@
 //
 
 #import "LoginViewController.h"
+#import "MainMenuViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 @interface LoginViewController ()
 
@@ -20,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
+    fbLoginButton.center = self.view.center;
+    [self.view addSubview:fbLoginButton];
+    fbLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,13 +70,16 @@
         
         if([resultValue  isEqual: @"Success"])
         {
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setBool:true forKey:@"isUserLoggedIn"];
-            [userDefaults synchronize];
-            //[[NSUserDefaults standardUserDefaults]setBool:true forKey:@"isUserLoggedIn"];
-            //[[NSUserDefaults standardUserDefaults]synchronize];
+            NSString *userEmailStored = [[NSUserDefaults standardUserDefaults]stringForKey:userEmail];
+            [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"isUserLoggedIn"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
             
-            [self dismissViewControllerAnimated:true completion:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+            MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+            mainMenuViewController.successName = userEmailStored;
+            [self showDetailViewController:mainMenuViewController sender:nil];
+            });
+            
         }
         
         
@@ -78,6 +89,9 @@
     
 }
 
+
+- (IBAction)fbLoginBtnPressed:(id)sender {
+}
 
 
 

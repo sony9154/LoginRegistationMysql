@@ -12,10 +12,12 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
-@interface LoginViewController ()
 
+@interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordTextField;
+
+
 
 @end
 
@@ -25,14 +27,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
-    fbLoginButton.center = self.view.center;
+    fbLoginButton.frame = CGRectMake((self.view.frame.size.width - fbLoginButton.frame.size.width)/2, self.view.frame.size.height * 0.8, fbLoginButton.frame.size.width, fbLoginButton.frame.size.height);
     [self.view addSubview:fbLoginButton];
     fbLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    [self loginViewShowingLoggedInUser:fbLoginButton];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)loginViewShowingLoggedInUser:(FBSDKLoginButton *)fbLoginButton
+{
+    //MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]initWithNibName:@"MainMenuViewController" bundle:nil];
+    MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+    [self.navigationController pushViewController:mainMenuViewController animated:YES];
 }
 
 - (IBAction)loginBtnPressed:(id)sender {

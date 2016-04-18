@@ -88,13 +88,6 @@
                                 <rect key="frame" x="141" y="308" width="60" height="30"/>
                                 <state key="normal" title="立即註冊"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KC8-km-R9V">
-                                <rect key="frame" x="54" y="439" width="97" height="30"/>
-                                <state key="normal" title="Facebook登入"/>
-                                <connections>
-                                    <action selector="fbLoginBtnPressed:" destination="xOb-0D-r5M" eventType="touchUpInside" id="dJL-Bh-gNC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-Eb-iQ3">
                                 <rect key="frame" x="62" y="483" width="80" height="30"/>
                                 <state key="normal" title="Google登入"/>

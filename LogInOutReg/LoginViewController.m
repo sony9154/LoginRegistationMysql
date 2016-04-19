@@ -38,6 +38,19 @@
     
     MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
     [self.navigationController pushViewController:mainMenuViewController animated:YES];
+    
+    NSDictionary *demandInfo = @{@"fields": @"name, email, first_name, last_name, picture.type(large)"};
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:demandInfo]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         
+         if (!error) {
+             NSLog(@"%@",result);
+             //NSLog(@"%@",result[@"email"]);
+             //NSLog(@"fetched user:%@  and Email : %@", result,result[@"email"]);
+             mainMenuViewController.successNickname = (NSString*)result[@"name"];
+         }
+    }];
+    
 
 }
 

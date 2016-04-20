@@ -124,10 +124,6 @@
 }
 
 
-- (IBAction)fbLoginBtnPressed:(id)sender {
-}
-
-
 
 /*
 #pragma mark - Navigation

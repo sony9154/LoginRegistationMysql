@@ -74,7 +74,7 @@
     if(userEmail.length == 0 || userPassword.length == 0){return;}
     
     NSURL *myUrl = [NSURL URLWithString:@"http://1.34.9.137:80/HelloBingo/userLogin.php"];
-    
+    //NSURL *myUrl = [NSURL URLWithString:@"http://1.34.9.137:80/HelloBingo/takeFriendList.php"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
     request.HTTPMethod = @"POST";
@@ -121,10 +121,6 @@
     
     [task resume];
     
-}
-
-
-- (IBAction)fbLoginBtnPressed:(id)sender {
 }
 
 

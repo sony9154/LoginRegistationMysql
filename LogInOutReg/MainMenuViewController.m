@@ -21,6 +21,8 @@
     // Do any additional setup after loading the view.
     self.userNameLabel.text = self.successNickname;
     
+    NSLog(@"userNameLabel is : %@",self.userNameLabel.text);
+    
 }
 
 - (void)didReceiveMemoryWarning {

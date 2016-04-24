@@ -39,12 +39,18 @@
     
     if(userEmail.length == 0 || userPassword.length == 0 || userRepeatPassword.length == 0 || userNickname.length == 0)
     {
-        [self displayMyAlertMessage:@"所有欄位都要填寫"];
+        [self displayMyAlertTitle:@"注意!" alertMessage:@"所有欄位都要填寫"];
+        return;
+    }
+    
+    if ([self validateEmail:userEmail] != true) {
+        [self displayMyAlertTitle:@"警告!" alertMessage:@"Email格式不正確!"];
         return;
     }
     
     if(userPassword != userRepeatPassword) {
-        [self displayMyAlertMessage:@"密碼輸入不一致！"];
+        [self displayMyAlertTitle:@"請再次確認" alertMessage:@"密碼輸入不一致！"];
+        return;
     }
     
     NSURL *myURL = [NSURL URLWithString:@"http://1.34.9.137:80/HelloBingo/userRegister.php"];
@@ -84,10 +90,11 @@
             NSLog(@"MessageToDisplay is :%@",messageToDisplay);
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Alert" message:messageToDisplay preferredStyle:UIAlertControllerStyleAlert];
+            [self displayMyAlertTitle:messageToDisplay alertMessage:nil];
+            /*UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Alert" message:messageToDisplay preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [myAlert addAction:okAction];
-            [self presentViewController:myAlert animated:true completion:nil];
+            [self presentViewController:myAlert animated:true completion:nil];*/
             
         });
         
@@ -99,9 +106,16 @@
 }
 
 
-- (void) displayMyAlertMessage:(NSString*)userMessage {
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
-    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"注意！" message:userMessage preferredStyle:UIAlertControllerStyleAlert];
+    return [emailTest evaluateWithObject:candidate];
+}
+
+- (void) displayMyAlertTitle:(NSString*)alertTitle alertMessage:(NSString*)userMessage {
+    
+    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:alertTitle message:userMessage preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [myAlert addAction:okAction];
     [self presentViewController:myAlert animated:true completion:nil];

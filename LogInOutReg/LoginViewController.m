@@ -36,21 +36,48 @@
 
 - (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     
-    MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-    [self.navigationController pushViewController:mainMenuViewController animated:YES];
-    
     NSDictionary *demandInfo = @{@"fields": @"name, email, first_name, last_name, picture.type(large)"};
+    
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:demandInfo]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+     
          
-         if (!error) {
-             NSLog(@"%@",result);
-             //NSLog(@"%@",result[@"email"]);
-             //NSLog(@"fetched user:%@  and Email : %@", result,result[@"email"]);
-             mainMenuViewController.successNickname = (NSString*)result[@"name"];
-         }
+         NSString *userEmail = (NSString*)result[@"email"];
+         NSString *userNickname = (NSString*)result[@"name"];
+         NSURL *myURL = [NSURL URLWithString:@"http://1.34.9.137:80/HelloBingo/facebookLogin.php"];
+         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myURL];
+         request.HTTPMethod = @"POST";
+         NSString *registerDataString = [NSString stringWithFormat:@"email=%@&nickname=%@", userEmail, userNickname];
+         request.HTTPBody = [registerDataString dataUsingEncoding:NSUTF8StringEncoding];
+         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+         NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+         NSURLSessionDataTask *task = [session dataTaskWithRequest:request];
+         [task resume];
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+             MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+             [self.navigationController pushViewController:mainMenuViewController animated:YES];
+         
+             
+             if (!error) {
+                 //NSLog(@"%@",result);
+                 //NSLog(@"%@",result[@"email"]);
+                 //NSLog(@"fetched user:%@  and Email : %@", result,result[@"email"]);
+                 mainMenuViewController.successNickname = (NSString*)result[@"name"];
+             }
+             
+         });
+         
+         
+         
+         
+         
     }];
     
+    
+    
+
 
 }
 

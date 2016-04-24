@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -165,11 +165,11 @@
                                 <state key="normal" title="設定"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-hn-lS7">
-                                <rect key="frame" x="262" y="95" width="75" height="45"/>
+                                <rect key="frame" x="234" y="95" width="130" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="CPH-nE-PMx"/>
-                                    <constraint firstAttribute="width" constant="75" id="SH4-qK-KvJ"/>
+                                    <constraint firstAttribute="width" constant="130" id="SH4-qK-KvJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -185,7 +185,7 @@
                             <constraint firstItem="y5N-0Q-Qbl" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" id="Nsh-FR-UXb"/>
                             <constraint firstItem="y5N-0Q-Qbl" firstAttribute="top" secondItem="nah-KD-y9h" secondAttribute="bottom" constant="139" id="Ygb-tV-TkZ"/>
                             <constraint firstItem="vUL-tj-kLe" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" id="Zih-HC-TBF"/>
-                            <constraint firstItem="j5j-hn-lS7" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" id="aFu-IS-RBa"/>
+                            <constraint firstItem="j5j-hn-lS7" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" constant="-1" id="aFu-IS-RBa"/>
                             <constraint firstItem="BBT-NX-YlY" firstAttribute="top" secondItem="nah-KD-y9h" secondAttribute="bottom" constant="412" id="fpn-QJ-FbX"/>
                             <constraint firstItem="JJl-61-7VU" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" id="mJL-iD-fzC"/>
                             <constraint firstItem="7Tn-Pb-AYV" firstAttribute="centerX" secondItem="ibP-MQ-BC8" secondAttribute="centerX" id="pk1-gl-mzH"/>

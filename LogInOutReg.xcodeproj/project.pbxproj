@@ -20,6 +20,7 @@
 		5D9710AC1CC2C26100D71CC6 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */; };
 		956CEC881CCE937A0039017E /* LeaderboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 956CEC851CCE937A0039017E /* LeaderboardTableViewCell.m */; };
 		956CEC891CCE937A0039017E /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956CEC871CCE937A0039017E /* LeaderboardViewController.m */; };
+		956CEC8B1CCE965F0039017E /* 123456.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 956CEC8A1CCE965F0039017E /* 123456.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		956CEC851CCE937A0039017E /* LeaderboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardTableViewCell.m; sourceTree = "<group>"; };
 		956CEC861CCE937A0039017E /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		956CEC871CCE937A0039017E /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		956CEC8A1CCE965F0039017E /* 123456.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123456.jpg; path = image/123456.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		5D80D00C1CAD5F0900F0B991 /* LogInOutReg */ = {
 			isa = PBXGroup;
 			children = (
+				5D80D0161CAD5F0900F0B991 /* Main.storyboard */,
 				5D80D0101CAD5F0900F0B991 /* AppDelegate.h */,
 				5D80D0111CAD5F0900F0B991 /* AppDelegate.m */,
 				5D80D0131CAD5F0900F0B991 /* EntranceViewController.h */,
@@ -91,7 +94,6 @@
 				5D93461C1CB3BC560068DD22 /* RegisterViewController.m */,
 				5D9710AA1CC2C26100D71CC6 /* MainMenuViewController.h */,
 				5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */,
-				5D80D0161CAD5F0900F0B991 /* Main.storyboard */,
 				956CEC831CCE93240039017E /* LeaderboardGroup */,
 				5D80D0191CAD5F0900F0B991 /* Assets.xcassets */,
 				5D80D01B1CAD5F0900F0B991 /* LaunchScreen.storyboard */,
@@ -112,6 +114,7 @@
 		956CEC831CCE93240039017E /* LeaderboardGroup */ = {
 			isa = PBXGroup;
 			children = (
+				956CEC8A1CCE965F0039017E /* 123456.jpg */,
 				956CEC841CCE937A0039017E /* LeaderboardTableViewCell.h */,
 				956CEC851CCE937A0039017E /* LeaderboardTableViewCell.m */,
 				956CEC861CCE937A0039017E /* LeaderboardViewController.h */,
@@ -180,6 +183,7 @@
 			files = (
 				5D80D01D1CAD5F0900F0B991 /* LaunchScreen.storyboard in Resources */,
 				5D80D01A1CAD5F0900F0B991 /* Assets.xcassets in Resources */,
+				956CEC8B1CCE965F0039017E /* 123456.jpg in Resources */,
 				5D80D0181CAD5F0900F0B991 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

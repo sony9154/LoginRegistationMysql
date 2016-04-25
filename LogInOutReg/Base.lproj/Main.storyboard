@@ -30,8 +30,16 @@
                                     <segue destination="GVQ-bP-1DD" kind="show" id="bfx-VL-FFx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oQ-87-SYS">
+                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4oQ-87-SYS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6OC-Ih-Sjl"/>
+                            <constraint firstItem="4oQ-87-SYS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NUD-63-iBd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hq2-Nc-bCz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -173,7 +181,7 @@
                                     <constraint firstAttribute="width" constant="130" id="SH4-qK-KvJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

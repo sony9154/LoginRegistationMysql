@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"登入";
+    
     FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
     fbLoginButton.delegate = self;
     fbLoginButton.frame = CGRectMake((self.view.frame.size.width - fbLoginButton.frame.size.width)/2, self.view.frame.size.height * 0.8, fbLoginButton.frame.size.width, fbLoginButton.frame.size.height);

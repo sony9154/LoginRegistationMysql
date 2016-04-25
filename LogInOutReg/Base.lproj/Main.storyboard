@@ -7,13 +7,13 @@
         <!--EntranceViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="EntranceViewController" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="EntranceViewController" customClass="EntranceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-P2-qIY">
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oQ-87-SYS">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -42,7 +42,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hq2-Nc-bCz"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +56,7 @@
                         <viewControllerLayoutGuide type="bottom" id="syw-a7-9vA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gXT-Tt-2nL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入註冊email 1@1.com" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tJM-jV-Tcl">
@@ -111,7 +110,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="crf-fJ-bj3"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="userEmailTextField" destination="tJM-jV-Tcl" id="cPt-gq-dds"/>
                         <outlet property="userPasswordTextField" destination="fU7-Of-NSr" id="mwf-hE-OHQ"/>
@@ -119,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jla-hQ-Gtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760" y="369"/>
+            <point key="canvasLocation" x="1974" y="369"/>
         </scene>
         <!--MainMenuViewController-->
         <scene sceneID="5GF-nX-laB">
@@ -218,7 +216,7 @@
                         <viewControllerLayoutGuide type="bottom" id="che-jt-nME"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SDz-sf-myg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入註冊密碼" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="m3X-82-cXY">
@@ -251,7 +249,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="repeatPasswordTextField" destination="LfB-CV-Rrx" id="UrK-u2-4AK"/>
                         <outlet property="userEmailTextField" destination="Lrg-aC-u3z" id="suc-Ro-Qn6"/>

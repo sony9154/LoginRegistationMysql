@@ -14,7 +14,6 @@
 		5D80D01A1CAD5F0900F0B991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D80D0191CAD5F0900F0B991 /* Assets.xcassets */; };
 		5D80D01D1CAD5F0900F0B991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D80D01B1CAD5F0900F0B991 /* LaunchScreen.storyboard */; };
 		5D80D0261CAD636700F0B991 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80D0251CAD636700F0B991 /* LoginViewController.m */; };
-		5D80D0291CAD647000F0B991 /* LoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80D0281CAD647000F0B991 /* LoginNavigationController.m */; };
 		5D93461D1CB3BC570068DD22 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93461C1CB3BC560068DD22 /* RegisterViewController.m */; };
 		5D9710A71CC2B33800D71CC6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9710A41CC2B33800D71CC6 /* FBSDKCoreKit.framework */; };
 		5D9710A81CC2B33800D71CC6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9710A51CC2B33800D71CC6 /* FBSDKLoginKit.framework */; };
@@ -34,8 +33,6 @@
 		5D80D01E1CAD5F0900F0B991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D80D0241CAD636700F0B991 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5D80D0251CAD636700F0B991 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		5D80D0271CAD647000F0B991 /* LoginNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavigationController.h; sourceTree = "<group>"; };
-		5D80D0281CAD647000F0B991 /* LoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNavigationController.m; sourceTree = "<group>"; };
 		5D93461B1CB3BC560068DD22 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		5D93461C1CB3BC560068DD22 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5D9710A41CC2B33800D71CC6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -80,17 +77,15 @@
 			children = (
 				5D80D0101CAD5F0900F0B991 /* AppDelegate.h */,
 				5D80D0111CAD5F0900F0B991 /* AppDelegate.m */,
-				5D80D0271CAD647000F0B991 /* LoginNavigationController.h */,
-				5D80D0281CAD647000F0B991 /* LoginNavigationController.m */,
+				5D80D0131CAD5F0900F0B991 /* EntranceViewController.h */,
+				5D80D0141CAD5F0900F0B991 /* EntranceViewController.m */,
+				5D80D0241CAD636700F0B991 /* LoginViewController.h */,
+				5D80D0251CAD636700F0B991 /* LoginViewController.m */,
 				5D93461B1CB3BC560068DD22 /* RegisterViewController.h */,
 				5D93461C1CB3BC560068DD22 /* RegisterViewController.m */,
 				5D9710AA1CC2C26100D71CC6 /* MainMenuViewController.h */,
 				5D9710AB1CC2C26100D71CC6 /* MainMenuViewController.m */,
-				5D80D0131CAD5F0900F0B991 /* EntranceViewController.h */,
-				5D80D0141CAD5F0900F0B991 /* EntranceViewController.m */,
 				5D80D0161CAD5F0900F0B991 /* Main.storyboard */,
-				5D80D0241CAD636700F0B991 /* LoginViewController.h */,
-				5D80D0251CAD636700F0B991 /* LoginViewController.m */,
 				5D80D0191CAD5F0900F0B991 /* Assets.xcassets */,
 				5D80D01B1CAD5F0900F0B991 /* LaunchScreen.storyboard */,
 				5D80D01E1CAD5F0900F0B991 /* Info.plist */,
@@ -181,7 +176,6 @@
 				5D80D0261CAD636700F0B991 /* LoginViewController.m in Sources */,
 				5D93461D1CB3BC570068DD22 /* RegisterViewController.m in Sources */,
 				5D80D0151CAD5F0900F0B991 /* EntranceViewController.m in Sources */,
-				5D80D0291CAD647000F0B991 /* LoginNavigationController.m in Sources */,
 				5D80D0121CAD5F0900F0B991 /* AppDelegate.m in Sources */,
 				5D80D00F1CAD5F0900F0B991 /* main.m in Sources */,
 				5D9710AC1CC2C26100D71CC6 /* MainMenuViewController.m in Sources */,

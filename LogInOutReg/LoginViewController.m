@@ -44,7 +44,6 @@
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:demandInfo]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
      
-         
          NSString *userEmail = (NSString*)result[@"email"];
          NSString *userNickname = (NSString*)result[@"name"];
          NSURL *myURL = [NSURL URLWithString:@"http://1.34.9.137:80/HelloBingo/facebookLogin.php"];
@@ -54,36 +53,33 @@
          request.HTTPBody = [registerDataString dataUsingEncoding:NSUTF8StringEncoding];
          NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
          NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-         NSURLSessionDataTask *task = [session dataTaskWithRequest:request];
+         //NSURLSessionDataTask *task = [session dataTaskWithRequest:request];
+         
+         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+         
+         
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 
+                 MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+                 
+                 if (!error) {
+                     //NSLog(@"%@",result);
+                     //NSLog(@"%@",result[@"email"]);
+                     //NSLog(@"fetched user:%@  and Email : %@", result,result[@"email"]);
+                     mainMenuViewController.successNickname = (NSString*)result[@"name"];
+                 }
+                 
+                 [self presentViewController:mainMenuViewController animated:YES completion:nil];
+             
+             });
+         
+         }];
+         
          [task resume];
-         
-         dispatch_async(dispatch_get_main_queue(), ^{
-             
-             MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-             [self.navigationController pushViewController:mainMenuViewController animated:YES];
-         
-             
-             if (!error) {
-                 //NSLog(@"%@",result);
-                 //NSLog(@"%@",result[@"email"]);
-                 //NSLog(@"fetched user:%@  and Email : %@", result,result[@"email"]);
-                 mainMenuViewController.successNickname = (NSString*)result[@"name"];
-             }
-             
-         });
-         
-         
-         
-         
-         
     }];
     
-    
-    
-
-
 }
-
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
     
@@ -93,8 +89,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 - (IBAction)loginBtnPressed:(id)sender {
     
@@ -141,19 +135,22 @@
             MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
                 //mainMenuViewController.successName = self.userEmailTextField.text;
                 mainMenuViewController.successNickname = resultNickname;
-            [self showDetailViewController:mainMenuViewController sender:nil];
+                
+            [self showViewController:mainMenuViewController sender:nil];
+            
             });
             
         }
         
-        
     }];
     
     [task resume];
-    
 }
 
-
+- (IBAction)goBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation

@@ -7,10 +7,12 @@
 //
 
 #import "MainMenuViewController.h"
+#import "SettingsViewController.h"
 
 @interface MainMenuViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *useImageView;
 
 @end
 
@@ -23,11 +25,22 @@
     
     NSLog(@"userNameLabel is : %@",self.userNameLabel.text);
     
+    UIImage *image = [UIImage imageNamed:@"123456.jpg"];
+    self.useImageView.image = image;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)settingsBtnPressed:(id)sender {
+    
+    SettingsViewController *vc2 = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    
+    vc2.settingsNickname = self.userNameLabel.text;
+    
+    [self showViewController:vc2 sender:nil];
 }
 
 /*

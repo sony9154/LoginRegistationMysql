@@ -86,20 +86,22 @@
         if([resultValue  isEqual: @"Success"]) {
             isUserRegistered = true;
         }
+        
         NSString *messageToDisplay = result[@"message"];
         if (!isUserRegistered) {
             messageToDisplay = result[@"message"];
             NSLog(@"MessageToDisplay is :%@",messageToDisplay);
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [self displayMyAlertTitle:messageToDisplay alertMessage:nil];
+            
             /*UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Alert" message:messageToDisplay preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [myAlert addAction:okAction];
             [self presentViewController:myAlert animated:true completion:nil];*/
             
         });
-        
         
     }];
     
@@ -122,6 +124,11 @@
     [myAlert addAction:okAction];
     [self presentViewController:myAlert animated:true completion:nil];
     
+}
+
+- (IBAction)goBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

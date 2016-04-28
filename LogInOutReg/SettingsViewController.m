@@ -11,7 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 
-@interface SettingsViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface SettingsViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *settingImageView;
 @property (weak, nonatomic) IBOutlet UITextField *settingNameTextField;
 
@@ -24,6 +24,22 @@
     // Do any additional setup after loading the view.
     
     self.settingNameTextField.text = self.settingsNickname;
+    
+    //宣告一個 TapGesture <--點按式
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dimissKeyboard)];
+    // 將手勢加到 view 上，才有作用
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    self.settingNameTextField.delegate =self;
+}
+
+-(void)dimissKeyboard {
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,10 +161,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)goBackOne:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 /*
 #pragma mark - Navigation

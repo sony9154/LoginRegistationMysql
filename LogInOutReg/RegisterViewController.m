@@ -8,7 +8,7 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()
+@interface RegisterViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordTextField;
@@ -25,6 +25,25 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"註冊";
+    
+    //宣告一個 TapGesture <--點按式
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dimissKeyboard)];
+    // 將手勢加到 view 上，才有作用
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    self.userEmailTextField.delegate = self;
+    self.userPasswordTextField.delegate = self;
+    self.repeatPasswordTextField.delegate = self;
+    self.userNicknameTextField.delegate =self;
+}
+
+-(void)dimissKeyboard {
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +100,7 @@
         
         NSLog(@"Result: %@", result.description);
         
+        
         NSString *resultValue = result[@"status"];
         BOOL isUserRegistered = false;
         if([resultValue  isEqual: @"Success"]) {
@@ -92,6 +112,7 @@
             messageToDisplay = result[@"message"];
             NSLog(@"MessageToDisplay is :%@",messageToDisplay);
         }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self displayMyAlertTitle:messageToDisplay alertMessage:nil];
@@ -100,13 +121,11 @@
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [myAlert addAction:okAction];
             [self presentViewController:myAlert animated:true completion:nil];*/
-            
         });
         
     }];
     
     [task resume];
-    //[self dismissViewControllerAnimated:true completion:nil];
 }
 
 
@@ -120,14 +139,24 @@
 - (void) displayMyAlertTitle:(NSString*)alertTitle alertMessage:(NSString*)userMessage {
     
     UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:alertTitle message:userMessage preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [myAlert addAction:okAction];
-    [self presentViewController:myAlert animated:true completion:nil];
     
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (userMessage) {
+            
+        } else {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+    }];
+    
+    [myAlert addAction:okAction];
+    
+    [self presentViewController:myAlert animated:true completion:nil];
 }
 
 - (IBAction)goBack:(id)sender {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

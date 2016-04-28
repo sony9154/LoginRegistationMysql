@@ -13,7 +13,7 @@
 
 
 
-@interface LoginViewController ()<FBSDKLoginButtonDelegate>
+@interface LoginViewController ()<FBSDKLoginButtonDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordTextField;
 
@@ -35,6 +35,23 @@
     [self.view addSubview:fbLoginButton];
     fbLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
+    //宣告一個 TapGesture <--點按式
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dimissKeyboard)];
+    // 將手勢加到 view 上，才有作用
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    self.userEmailTextField.delegate =self;
+    self.userPasswordTextField.delegate = self;
+    
+}
+
+-(void)dimissKeyboard {
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
@@ -57,8 +74,6 @@
          
          NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
-         
-         
              dispatch_async(dispatch_get_main_queue(), ^{
                  
                  MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
@@ -125,21 +140,42 @@
         NSString *resultNickname = [result[@"nickname"] objectForKey:@"user_nickname"];
         //NSString *nicknameCut = [resultNickname substringFromIndex:5];
         
-        if([resultValue  isEqual: @"Success"])
-        {
+        if([resultValue isEqual:@"Success"]) {
+            
             //NSString *userEmailStored = [[NSUserDefaults standardUserDefaults]stringForKey:userEmail];
             [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"isUserLoggedIn"];
             [[NSUserDefaults standardUserDefaults]synchronize];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-            MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-                //mainMenuViewController.successName = self.userEmailTextField.text;
-                mainMenuViewController.successNickname = resultNickname;
                 
-            [self showViewController:mainMenuViewController sender:nil];
-            
+                MainMenuViewController *mainMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+                    //mainMenuViewController.successName = self.userEmailTextField.text;
+                    mainMenuViewController.successNickname = resultNickname;
+                    
+                [self showViewController:mainMenuViewController sender:nil];
+                
             });
             
+            NSLog(@"登入成功");
+
+        } else {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"您的帳號或密碼錯誤" message:@"請重新輸入" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction * restPassword = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [self.userPasswordTextField setText:@""];
+                        [self.userPasswordTextField becomeFirstResponder];
+                }];
+                
+                [alertController addAction:restPassword];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+                
+             });
+            
+            NSLog(@"登入失敗");
         }
         
     }];

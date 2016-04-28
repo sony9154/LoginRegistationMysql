@@ -43,6 +43,15 @@
     [self showViewController:vc2 sender:nil];
 }
 
+- (IBAction)settingsBtnPressed2:(id)sender {
+    
+    SettingsViewController *vc2 = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    
+    vc2.settingsNickname = self.userNameLabel.text;
+    
+    [self showViewController:vc2 sender:nil];
+}
+
 /*
 #pragma mark - Navigation
 

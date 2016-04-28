@@ -21,6 +21,7 @@
     UIBarButtonItem * backItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.backBarButtonItem = backItem;
     
+    
 }
 
 -(IBAction)exit:(UIStoryboardSegue*)sender

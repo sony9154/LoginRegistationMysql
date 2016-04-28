@@ -55,7 +55,19 @@
         
         NSMutableDictionary *result = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
         
-        NSLog(@"\nResult: %@", result.description);
+        dispatch_async(dispatch_get_main_queue(), ^{
+        
+            if([result[@"status"] isEqual:@"Success"]){
+                [self displayMyAlertTitle:@"請到註冊信箱收取密碼" alertMessage:nil];
+            } else {
+                [self displayMyAlertTitle:@"此註冊帳號不存在" alertMessage:nil];
+            }
+        
+        });
+        
+        
+        
+        
         
     }];
     
@@ -77,6 +89,9 @@
     [myAlert addAction:okAction];
     [self presentViewController:myAlert animated:true completion:nil];
     
+}
+- (IBAction)backgroundTap:(id)sender {
+    [self.emailTextField resignFirstResponder];
 }
 
 /*

@@ -150,6 +150,11 @@
     
 }
 
+- (IBAction)backgroundTap:(id)sender {
+    [self.userEmailTextField resignFirstResponder];
+    [self.userPasswordTextField resignFirstResponder];
+}
+
 
 
 /*

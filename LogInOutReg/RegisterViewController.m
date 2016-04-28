@@ -116,10 +116,21 @@
 - (void) displayMyAlertTitle:(NSString*)alertTitle alertMessage:(NSString*)userMessage {
     
     UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:alertTitle message:userMessage preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIViewController *entranceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EntranceViewController"];
+        [self showDetailViewController:entranceViewController sender:self];
+    }];
     [myAlert addAction:okAction];
+    //[self presentViewController:myAlert animated:true completion:nil];
     [self presentViewController:myAlert animated:true completion:nil];
     
+}
+
+- (IBAction)backgroundTap:(id)sender {
+    [self.userEmailTextField resignFirstResponder];
+    [self.userPasswordTextField resignFirstResponder];
+    [self.repeatPasswordTextField resignFirstResponder];
+    [self.userNicknameTextField resignFirstResponder];
 }
 
 /*
